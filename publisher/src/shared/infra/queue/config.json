@@ -1,0 +1,37 @@
+{
+    "vhosts": {
+      "/": {
+        "publicationChannelPools": {
+          "confirmPool": {
+            "autostart": true
+          }
+        },
+        "connection": {
+          "url": "amqp://localhost/",
+          "options": {
+            "heartbeat": 10
+          },
+          "socketOptions": {
+            "timeout": 1000
+          }
+        },
+        "exchanges": ["messageExchange"],
+        "queues": ["messageQueue"],
+        "bindings": ["messageExchange[messageKey] -> messageQueue"],
+        "publications": {
+          "message": {
+            "exchange": "messageExchange",
+            "routingKey": "messageKey",
+            "options": {
+              "persistent": false
+            }
+          }
+        },
+        "subscriptions": {
+          "demo_sub": {
+            "queue": "messageQueue"
+          }
+        }
+      }
+    }
+  }
