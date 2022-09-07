@@ -1,6 +1,6 @@
 import { Request, Response} from "express"
 import { AppError } from "../../shared/error/AppError"
-import { publish } from "../../shared/infra/queue/publish"
+import { publish } from "queue/publish"
 
 export class MessageController{
     async handle(request: Request, response: Response): Promise<Response>{

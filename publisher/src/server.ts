@@ -1,7 +1,7 @@
 import cors from "cors";
 import "reflect-metadata"
 import express, { NextFunction, Request, Response } from "express"
-import { AppError } from "../../error/AppError";
+import { AppError } from "./shared/error/AppError";
 import { router } from "./routes/index";
 
 const app = express()
